@@ -1,20 +1,22 @@
-checkspeed(81);
+// https://youtu.be/wKyle38qsmM?list=PL_WK6W0Gn1I7bL0pRUxYSbTj6g8tHU6Yq - savol
+const SPEED_LIMIT = 70;
+const KM_PER_POINT = 5;
+const MAX_POINTS = 12;
 
-var maxSpeed = 70;
-var count = 5;
+checkSpeed(200);
 
-
-function checkspeed(speed){
-    let points = 0;
-    if(speed - maxSpeed <= maxSpeed) {
+function checkSpeed(speed){
+    if(speed < SPEED_LIMIT + KM_PER_POINT)
         console.log('Okay');
+    else {
+        let points = Math.floor((speed - SPEED_LIMIT) / KM_PER_POINT);
+        if(points > MAX_POINTS ){
+            console.log('Guvohnoma olib qo\'yiladi.');
+        }
+        else {
+            console.log(`Sizda ${points}ta jarima bor.`);
+        }
     }
-    else if(speed - maxSpeed == true){
-        points += Math.round(speed % count );
-    }
-    else if(points => 12) {console.log('Jarima!');}
-
-    else {console.log(speed);}
 }
 
 // agar 70 dan oshiq bo'lsa maxSpeedni ayriymiz va 5 ga bo'lamiz
